@@ -24,6 +24,11 @@ public class Tutorial {
     @Column(name = "published")
     private boolean published;
 
+    public Tutorial(String title, String description, boolean published) {
+        this.title = title;
+        this.description = description;
+        this.published = published;
+    }
 
     @Override
     public int hashCode() {
@@ -93,7 +98,4 @@ public class Tutorial {
     public void setPublished(boolean published) {
         this.published = published;
     }
-
-    
-    
 }
