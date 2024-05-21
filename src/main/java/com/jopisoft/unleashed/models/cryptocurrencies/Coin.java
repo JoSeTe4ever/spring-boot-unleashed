@@ -2,39 +2,53 @@ package com.jopisoft.unleashed.models.cryptocurrencies;
 
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "coins")
 public class Coin {
+    @Id
+    @Column(name = "uuid")
     public String uuid;
+
+    @Column(name = "symbol")
     public String symbol;
+
+    @Column(name = "name")
     public String name;
+
+    @Column(name = "description")
     public String description;
+
+    @Column(name = "color")
     public String color;
+
+    @Column(name = "icon_url")
     public String iconUrl;
+
+    @Column(name = "website_url")
     public String websiteUrl;
+
+    @Column(name = "links")
     public ArrayList<Link> links;
-    public int numberOfMarkets;
-    public int numberOfExchanges;
-    @JsonProperty("24hVolume")
-    public String _24hVolume;
+
+    @Column(name = "market_cap")
     public String marketCap;
+
+    @Column(name = "fully_diluted_market_cap")
     public String fullyDilutedMarketCap;
+
+    @Column(name = "price")
     public String price;
+
+    @Column(name = "btc_price")
     public String btcPrice;
-    public int priceAt;
+
+    @Column(name = "change")
     public String change;
-    public int rank;
-    public String coinrankingUrl;
-    public int tier;
-    public boolean lowVolume;
-    public int listedAt;
-    public boolean hasContent;
-    public Object notices;
 }
 
 /***
