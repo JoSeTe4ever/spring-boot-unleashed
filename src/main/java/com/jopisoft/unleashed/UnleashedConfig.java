@@ -1,7 +1,5 @@
 package com.jopisoft.unleashed;
 
-import java.util.Arrays;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
