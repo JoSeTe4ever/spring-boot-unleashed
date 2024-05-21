@@ -10,27 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.jopisoft.unleashed.models.cryptocurrencies.enums.RapidApiHeaders;
+
 @Service
 public class CovidService {
 
     private final static String url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api";
     private final static String apiKey = "886EKEGISYmsh0xKrQBlkj83tphgp1yJpb5jsn3zsyxwLsoZLN";
     private final static String host = "corona-virus-world-and-india-data.p.rapidapi.com";
-
-    public enum ApiHeaders {
-        X_RAPIDAPI_KEY("X-RapidAPI-Key"),
-        X_RAPIDAPI_HOST("X-RapidAPI-Host");
-
-        private String header;
-
-        ApiHeaders(String header) {
-            this.header = header;
-        }
-
-        public String getHeader() {
-            return header;
-        }
-    }
 
     @Autowired  
     private RestTemplate restTemplate;
@@ -42,8 +29,8 @@ public class CovidService {
      */
     public Object getAllCountryCovidData() {
         HttpHeaders headers = new HttpHeaders();
-        headers.set(ApiHeaders.X_RAPIDAPI_KEY.getHeader(), apiKey);
-        headers.set(ApiHeaders.X_RAPIDAPI_HOST.getHeader(), host);
+        headers.set(RapidApiHeaders.X_RAPIDAPI_KEY.getHeader(), apiKey);
+        headers.set(RapidApiHeaders.X_RAPIDAPI_HOST.getHeader(), host);
 
         // Build the request
         HttpEntity<String> entity = new HttpEntity<>(headers);
