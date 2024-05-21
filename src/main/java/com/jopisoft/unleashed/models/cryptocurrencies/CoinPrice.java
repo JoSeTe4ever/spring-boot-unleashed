@@ -1,5 +1,6 @@
 package com.jopisoft.unleashed.models.cryptocurrencies;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -11,6 +12,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -18,15 +21,18 @@ import jakarta.persistence.Entity;
         "price",
         "timestamp"
 })
-public class CoinPrice {
+public class CoinPrice implements Serializable{
 
     @JsonProperty("coin_name")
     private String coinName;
 
     @JsonProperty("price")
     private String price;
+
+    @Id
     @JsonProperty("timestamp")
     private long timestamp;
+    
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -79,7 +85,7 @@ public class CoinPrice {
     public String getCoinName() {
         return coinName;
     }
-    
+
     @JsonProperty("coin_name")
     public void setCoinName(String coinName) {
         this.coinName = coinName;

@@ -1,6 +1,7 @@
 package com.jopisoft.unleashed.models.cryptocurrencies;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;

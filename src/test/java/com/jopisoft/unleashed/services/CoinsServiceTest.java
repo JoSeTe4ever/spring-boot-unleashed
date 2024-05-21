@@ -1,3 +1,5 @@
+package com.jopisoft.unleashed.services;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -7,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
 import com.jopisoft.unleashed.models.cryptocurrencies.Coin;
+import com.jopisoft.unleashed.models.cryptocurrencies.enums.CoinSymbol;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CoinsServiceTest {
@@ -16,7 +19,7 @@ public class CoinsServiceTest {
 
     @Test
     public void testCallForCoinById() {
-        ResponseEntity<Coin> response = coinsService.callForCoinById("bitcoin");
+        ResponseEntity<Coin> response = coinsService.getCoinById(CoinSymbol.BTC.toString());
 
         assertEquals(200, response.getStatusCodeValue());
         assertNotNull(response.getBody());
