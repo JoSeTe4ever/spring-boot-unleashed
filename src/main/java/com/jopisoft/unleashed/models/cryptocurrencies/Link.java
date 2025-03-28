@@ -20,62 +20,62 @@ import jakarta.persistence.Table;
  * the file must match the name of the public class.
  */
 
- @Entity
- @Table(name = "links")
- class Link implements Serializable {
+@Entity
+@Table(name = "links")
+class Link implements Serializable {
 
-     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-     @JoinColumn(name = "coin_id", referencedColumnName = "uuid")
-     private Coin coin;
+    @ManyToOne(targetEntity = Coin.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "coin_id", referencedColumnName = "uuid")
+    private Coin coin;
 
-     @Column(name = "name")
-     public String name;
+    @Column(name = "name")
+    public String name;
 
-     @Id
-     @Column(name = "url")
-     public String url;
+    @Id
+    @Column(name = "url")
+    public String url;
 
-     @Column(name = "type")
-     public String type;
+    @Column(name = "type")
+    public String type;
 
-     public Link() {
-     }
+    public Link() {
+    }
 
-     public Link(String name, String url, String type) {
-         this.name = name;
-         this.url = url;
-         this.type = type;
-     }
+    public Link(String name, String url, String type) {
+        this.name = name;
+        this.url = url;
+        this.type = type;
+    }
 
-     public Coin getCoin() {
-         return coin;
-     }
+    public Coin getCoin() {
+        return coin;
+    }
 
-     public void setCoin(Coin coin) {
-         this.coin = coin;
-     }
+    public void setCoin(Coin coin) {
+        this.coin = coin;
+    }
 
-     public String getName() {
-         return name;
-     }
+    public String getName() {
+        return name;
+    }
 
-     public void setName(String name) {
-         this.name = name;
-     }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-     public String getUrl() {
-         return url;
-     }
+    public String getUrl() {
+        return url;
+    }
 
-     public void setUrl(String url) {
-         this.url = url;
-     }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-     public String getType() {
-         return type;
-     }
+    public String getType() {
+        return type;
+    }
 
-     public void setType(String type) {
-         this.type = type;
-     }
- }
+    public void setType(String type) {
+        this.type = type;
+    }
+}

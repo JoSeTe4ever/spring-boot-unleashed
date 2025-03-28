@@ -32,9 +32,6 @@ public class CoinPrice implements Serializable{
     @Id
     @JsonProperty("timestamp")
     private long timestamp;
-    
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("price")
     public String getPrice() {
@@ -63,21 +60,6 @@ public class CoinPrice implements Serializable{
 
     public CoinPrice withTimestamp(long timestamp) {
         this.timestamp = timestamp;
-        return this;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    public CoinPrice withAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
         return this;
     }
 

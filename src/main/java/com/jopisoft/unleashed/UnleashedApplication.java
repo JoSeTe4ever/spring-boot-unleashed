@@ -8,7 +8,6 @@ public class UnleashedApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UnleashedApplication.class, args);
-
 	}
 
 }

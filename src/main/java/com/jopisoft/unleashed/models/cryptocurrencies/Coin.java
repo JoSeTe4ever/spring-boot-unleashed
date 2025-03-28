@@ -38,7 +38,7 @@ public class Coin implements Serializable {
     @Column(name = "website_url")
     public String websiteUrl;
 
-    @OneToMany(mappedBy = "coin", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Link.class , mappedBy = "coin", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<Link> links;
 
     @Column(name = "market_cap")
